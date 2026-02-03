@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-Class Evoluent Controller Playbook | Kings Key Digital Factory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #00ff88;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #53a8ff;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .motto {
+            color: #ffd700;
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .section {
+            background: rgba(22, 33, 62, 0.8);
+            border: 2px solid #53a8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #00ff88;
+            border-bottom: 2px solid #00ff88;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #53a8ff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .alert-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 5px solid #ff0000;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 5px solid #00ff88;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info-box {
+            background: rgba(83, 168, 255, 0.1);
+            border-left: 5px solid #53a8ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        th {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc70 100%);
+            color: #0a0a0a;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #53a8ff;
+        }
+
+        tr:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .button-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .button-card {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .button-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .button-title {
+            color: #00ff88;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .button-action {
+            color: #53a8ff;
+            margin: 5px 0;
+        }
+
+        .button-result {
+            color: #ffd700;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.5);
+            color: #00ff88;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .script-box {
+            background: #0a0a0a;
+            border: 2px solid #00ff88;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .script-box pre {
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+            color: #0a0a0a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .download-section h3 {
+            color: #0a0a0a;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .s-class {
+            background: linear-gradient(135deg, #ff00ff 0%, #8b00ff 100%);
+            color: white;
+        }
+
+        .a-class {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc70 100%);
+            color: #0a0a0a;
+        }
+
+        .b-class {
+            background: linear-gradient(135deg, #53a8ff 0%, #0080ff 100%);
+            color: white;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-green { background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+        .status-yellow { background: #ffd700; box-shadow: 0 0 10px #ffd700; }
+        .status-red { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        .status-purple { background: #8b00ff; box-shadow: 0 0 10px #8b00ff; }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚔️ S-CLASS EVOLUENT CONTROLLER PLAYBOOK ⚔️</h1>
+            <div class="subtitle">Kings Key Digital Factory | Evil Genius Operations Manual</div>
+            <div class="motto">CARPE FUTURUM - SEIZE THE FUTURE</div>
+        </header>
+
+        <div class="section">
+            <h2>🎮 MISSION BRIEF: THE CONTROLLER PHILOSOPHY</h2>
+            <p>Your Evoluent VerticalMouse D is not just a mouse—it's your <strong>PlayStation DualSense controller</strong> for running a digital empire. Just like playing Evil Genius 2, you sit in the command chair, click buttons, and the minions (automations) execute the plan.</p>
+            
+            <div class="success-box">
+                <strong>The Goal:</strong> Move your hands as little as possible while managing your SSOT (Airtable), communication (Discord), AI builds (Lovable), and trading algorithms—all with S-Class precision.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🖱️ THE CONTROLLER LAYOUT</h2>
+            <h3>Physical Button Mapping</h3>
+            
+            <div class="button-map">
+                <div class="button-card">
+                    <div class="button-title">Button 1 (Top)</div>
+                    <div class="button-action">Primary: Left Click</div>
+                    <div class="button-action">With Btn 6: Middle Click / Scroll Lock</div>
+                    <div class="button-result">→ Standard selection & advanced navigation</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">Button 2 (Middle)</div>
+                    <div class="button-action">Primary: Double Click</div>
+                    <div class="button-action">With Btn 6: Ctrl+C (Copy)</div>
+                    <div class="button-result">→ Opens Airtable records instantly</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">Button 3 (Bottom)</div>
+                    <div class="button-action">Primary: Right Click</div>
+                    <div class="button-action">With Btn 6: Ctrl+V (Paste)</div>
+                    <div class="button-result">→ Context menus & quick data paste</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">Button 4 (Thumb Top)</div>
+                    <div class="button-action">Primary: Win+H (Voice Dictation)</div>
+                    <div class="button-action">With Btn 6: Ctrl+Z (Undo)</div>
+                    <div class="button-result">→ Speak SOPs into existence</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">Button 5 (Thumb Bottom)</div>
+                    <div class="button-action">Primary: Ctrl+Tab (Switch Tabs)</div>
+                    <div class="button-action">With Btn 6: Alt+Tab (Switch Apps)</div>
+                    <div class="button-result">→ CCTV switch between systems</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">Button 6 (Modifier)</div>
+                    <div class="button-action">HOLD to activate secondary functions</div>
+                    <div class="button-result">→ Like R1/L1 on PlayStation - changes ability set</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚨 ALERT SYSTEM PROTOCOLS</h2>
+            <p>Your business operates on a Star Trek-inspired alert system that provides atmospheric automation with audio cues.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alert Level</th>
+                        <th>Trigger</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="status-indicator status-green"></span><strong>GREEN ALERT</strong></td>
+                        <td>Ctrl+Alt+G</td>
+                        <td>All Clear / Back to Business</td>
+                        <td>Standard operations, algorithm farming, routine tasks</td>
+                    </tr>
+                    <tr>
+                        <td><span class="status-indicator status-yellow"></span><strong>YELLOW ALERT</strong></td>
+                        <td>Manual flag</td>
+                        <td>Issue Detected</td>
+                        <td>Minion needs assistance, algorithm behaving unexpectedly</td>
+                    </tr>
+                    <tr>
+                        <td><span class="status-indicator status-red"></span><strong>RED ALERT</strong></td>
+                        <td>Ctrl+Alt+K</td>
+                        <td>Emergency Stop / Kill Switch</td>
+                        <td>Halts all algorithms, severs API feeds, master-only control</td>
+                    </tr>
+                    <tr>
+                        <td><span class="status-indicator status-purple"></span><strong>BLACK ALERT</strong></td>
+                        <td>Ctrl+Alt+B</td>
+                        <td>Discovery Mode / Maximum Focus</td>
+                        <td>High-intensity execution, spinning up the spore drive</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert-box">
+                <strong>⚠️ MASTER CONTROL ONLY:</strong> Only the Mastermind (you) has access to the RED ALERT Kill Switch. Minions can flag YELLOW but cannot stop the system.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💻 SOFTWARE STACK</h2>
+            
+            <h3><span class="tier-badge s-class">S-CLASS</span> Core Tools</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>X-Mouse Button Control</strong> - Controller button mapping system</li>
+                    <li><strong>AutoHotkey v2.0</strong> - Scripting engine for automation & sound triggers</li>
+                    <li><strong>Evoluent Mouse Manager</strong> - Official driver (backup to X-Mouse)</li>
+                </ol>
+            </div>
+
+            <h3><span class="tier-badge a-class">A-CLASS</span> Enhancement Tools</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>TextExpander</strong> - SOP snippets (type <code>;sop1</code> → 500 words instantly)</li>
+                    <li><strong>Windows Voice Dictation</strong> - Built-in Win+H functionality</li>
+                </ol>
+            </div>
+
+            <h3><span class="tier-badge b-class">B-CLASS</span> Support Tools</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>Browser Shortcuts</strong> - Ctrl+1/2/3 for tab navigation</li>
+                    <li><strong>Sound Files</strong> - Alert system audio (.wav files)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📜 AUTOHOTKEY MASTER SCRIPT</h2>
+            <p>Save this as <code>FactoryControl.ahk</code> and run it on startup for full automation:</p>
+
+            <div class="script-box">
+                <pre>; ---------------------------------------------------------
+; KINGS KEY DIGITAL FACTORY COMMAND CENTER
+; ---------------------------------------------------------
+
+; === LAUNCH SUITE (Windows + Shift + S) ===
+#+s::
+{
+    Run "https://airtable.com/your-base-url"  ; Your SSOT
+    Sleep 500
+    Run "https://discord.com/app"
+    Sleep 500
+    Run "https://lovable.dev"
+    MsgBox "Digital Factory Online. System standing by, Operator."
+}
+
+; === VOICE DICTATION (Windows + D) ===
+#d::
+{
+    Send "#h"  ; Triggers Windows Dictation
+}
+
+; === BLACK ALERT (Ctrl + Alt + B) ===
+^!b::
+{
+    SoundPlay "C:\LairSounds\black_alert.wav"
+    TrayTip "BLACK ALERT", "Spinning up the Spore Drive.", 2
+    ; Webhook to update Guild status
+    Http := ComObject("WinHttp.WinHttpRequest.5.1")
+    Http.Open("POST", "YOUR_AIRTABLE_WEBHOOK_URL?status=Black", false)
+    Http.Send()
+}
+
+; === RED ALERT - KILL SWITCH (Ctrl + Alt + K) ===
+^!k::
+{
+    SoundPlay "C:\LairSounds\red_alert.wav"
+    Result := MsgBox("ACTIVATE RED ALERT? This will halt all algorithms.", "EMERGENCY", "Icon! 4")
+    if (Result = "Yes")
+    {
+        Http := ComObject("WinHttp.WinHttpRequest.5.1")
+        Http.Open("POST", "YOUR_KILL_SWITCH_WEBHOOK_URL", false)
+        Http.Send()
+        MsgBox "RED ALERT ACTIVATED. All systems standing down."
+    }
+}
+
+; === GREEN ALERT - ALL CLEAR (Ctrl + Alt + G) ===
+^!g::
+{
+    SoundPlay "C:\LairSounds\all_clear.wav"
+    TrayTip "GREEN ALERT", "Threat neutralized. Back to the grind.", 1
+    ; Resume trading automation
+    Http := ComObject("WinHttp.WinHttpRequest.5.1")
+    Http.Open("POST", "YOUR_RESUME_WEBHOOK_URL", false)
+    Http.Send()
+}
+
+; === GUILD MONITOR LAUNCHER (Ctrl + Alt + M) ===
+^!m::
+{
+    Run "https://your-github-pages.github.io/lair-dashboard"
+    TrayTip "Lair Status", "Accessing Guild Activity Monitor...", 1
+}
+
+; === EMERGENCY BROWSER STOP (Ctrl + Alt + Delete) ===
+^!Delete::
+{
+    ProcessClose "chrome.exe"
+    ProcessClose "msedge.exe"
+    MsgBox "EMERGENCY STOP: All data feeds severed."
+}</pre>
+            </div>
+
+            <div class="success-box">
+                <strong>Setup Instructions:</strong>
+                <ol>
+                    <li>Create folder: <code>C:\LairSounds\</code></li>
+                    <li>Add audio files: black_alert.wav, red_alert.wav, all_clear.wav</li>
+                    <li>Replace webhook URLs with your Airtable automation webhooks</li>
+                    <li>Save as <code>FactoryControl.ahk</code></li>
+                    <li>Right-click → Run Script (add to Windows Startup folder for auto-launch)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏰 THE GUILD ACTIVITY MONITOR</h2>
+            
+            <h3>Airtable "Lair Staff" Table Structure</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Type</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>Single Line Text</td>
+                        <td>Employee/Minion identifier</td>
+                    </tr>
+                    <tr>
+                        <td>Current Status</td>
+                        <td>Single Select</td>
+                        <td>Green / Yellow / Red / Black alert levels</td>
+                    </tr>
+                    <tr>
+                        <td>Workstation ID</td>
+                        <td>Single Line Text</td>
+                        <td>Minion-01, Minion-02, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>Last Update</td>
+                        <td>Last Modified Time</td>
+                        <td>Auto-tracks status freshness</td>
+                    </tr>
+                    <tr>
+                        <td>Current Task</td>
+                        <td>Single Line Text</td>
+                        <td>Which algorithm/project they're running</td>
+                    </tr>
+                    <tr>
+                        <td>Avatar</td>
+                        <td>Attachment</td>
+                        <td>Profile pic or minion icon</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Dashboard Views</h3>
+            <div class="button-map">
+                <div class="button-card">
+                    <div class="button-title">🎯 War Room (Gallery)</div>
+                    <div class="button-action">Large cards with conditional coloring</div>
+                    <div class="button-result">See who's in Black Alert at a glance</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">📋 Activity Feed (List)</div>
+                    <div class="button-action">Chronological status changes</div>
+                    <div class="button-result">Combat log of all minion actions</div>
+                </div>
+
+                <div class="button-card">
+                    <div class="button-title">📊 Loot & Efficiency (Chart)</div>
+                    <div class="button-action">Bar chart of time spent per alert level</div>
+                    <div class="button-result">Production analytics & optimization</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ X-MOUSE CONFIGURATION GUIDE</h2>
+            
+            <h3>Setting Up "Simulated Keys"</h3>
+            <ol>
+                <li>Open <strong>X-Mouse Button Control</strong></li>
+                <li>Select your mouse from the device list</li>
+                <li>Click on a button (e.g., Button 4)</li>
+                <li>Choose <strong>"Simulated Keys"</strong> from the dropdown</li>
+                <li>Enter the hotkey combination (e.g., <code>{WIN}{SHIFT}s</code> or <code>{CTRL}{ALT}b</code>)</li>
+                <li>Repeat for all buttons</li>
+                <li>Click <strong>"Apply"</strong></li>
+            </ol>
+
+            <h3>Creating Application-Specific Profiles</h3>
+            <div class="info-box">
+                <p><strong>Pro Tip:</strong> Create different button layouts for different programs:</p>
+                <ul>
+                    <li><strong>Airtable Profile:</strong> Focus on data entry & record navigation</li>
+                    <li><strong>Development Profile:</strong> Browser refresh, dev tools, tab switching</li>
+                    <li><strong>Trading Profile:</strong> Chart navigation, order execution shortcuts</li>
+                </ul>
+                <p>X-Mouse automatically switches profiles when you focus different windows!</p>
+            </div>
+
+            <h3>Exporting for Team Deployment</h3>
+            <ol>
+                <li>Click <strong>"Settings"</strong> tab</li>
+                <li>Select <strong>"Export"</strong></li>
+                <li>Save as <code>KingsKey_SClass.xmbcs</code></li>
+                <li>Share file with employees</li>
+                <li>They import it: Settings → Import → Select file</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>👥 MINION DEPLOYMENT CHECKLIST</h2>
+            
+            <div class="alert-box">
+                <h3>🎖️ MISSION BRIEFING: Lair Station Setup</h3>
+                <p><strong>Target:</strong> All Minions (Employees)<br>
+                <strong>Objective:</strong> Transition to S-Class "Evil Genius" Workflow<br>
+                <strong>Status:</strong> Mandatory for World Domination</p>
+            </div>
+
+            <h3>Hardware Requirements</h3>
+            <ul>
+                <li>Evoluent VerticalMouse (D, 4, or compatible model)</li>
+                <li>Windows PC with internet access</li>
+                <li>Speakers or headphones (for alert system audio)</li>
+            </ul>
+
+            <h3>Software Installation Order</h3>
+            <ol>
+                <li>Download & install <strong>X-Mouse Button Control</strong> from highrez.co.uk</li>
+                <li>Download & install <strong>AutoHotkey v2.0</strong> from autohotkey.com</li>
+                <li>Import the <code>KingsKey_SClass.xmbcs</code> configuration file</li>
+                <li>Copy <code>FactoryControl.ahk</code> to <code>C:\KingsKey\</code></li>
+                <li>Create <code>C:\LairSounds\</code> folder and add audio files</li>
+                <li>Right-click the .ahk file → Run Script</li>
+                <li>Test Green Alert button to verify Guild Monitor connection</li>
+            </ol>
+
+            <h3>Training Protocol</h3>
+            <div class="success-box">
+                <ol>
+                    <li><strong>Button Familiarization:</strong> 10 minutes practicing each button</li>
+                    <li><strong>Voice Dictation Drill:</strong> Write 3 SOPs using only voice</li>
+                    <li><strong>Alert System Test:</strong> Trigger all 4 alert levels</li>
+                    <li><strong>Combo Training:</strong> Master Btn 6 + other button combinations</li>
+                    <li><strong>Speed Run:</strong> Complete a full task without touching keyboard</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌐 HOSTING THE GUILD DASHBOARD</h2>
+            
+            <h3>Option 1: GitHub Pages (Professional)</h3>
+            <ol>
+                <li>Create free GitHub account</li>
+                <li>Create new repository named <code>lair-dashboard</code></li>
+                <li>Upload <code>index.html</code> (generated by Claude with dashboard code)</li>
+                <li>Go to Settings → Pages</li>
+                <li>Set source to "Deploy from a branch" → main</li>
+                <li>Access at: <code>yourusername.github.io/lair-dashboard</code></li>
+            </ol>
+
+            <h3>Option 2: Netlify Drop (Quick Deploy)</h3>
+            <ol>
+                <li>Visit <code>app.netlify.com/drop</code></li>
+                <li>Drag your HTML folder into the upload zone</li>
+                <li>Get instant URL like <code>evil-genius-site-123.netlify.app</code></li>
+                <li>Customize name in settings</li>
+            </ol>
+
+            <h3>Integrating with Mouse Controls</h3>
+            <div class="script-box">
+                <pre>; Add to your AutoHotkey script:
+^!m::  ; Ctrl+Alt+M launches Guild Monitor
+{
+    Run "https://your-dashboard-url.com"
+    TrayTip "Lair Status", "Accessing Guild Activity Monitor...", 1
+}</pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 SPECIFIC USE CASES</h2>
+            
+            <h3>Airtable SSOT Mastery</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Button Combo</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Open record</td>
+                        <td>Button 2 (Double Click)</td>
+                        <td>Expands record view instantly</td>
+                    </tr>
+                    <tr>
+                        <td>Quick search</td>
+                        <td>Btn 6 + Btn 1 → Ctrl+F</td>
+                        <td>Find field without keyboard</td>
+                    </tr>
+                    <tr>
+                        <td>Insert date</td>
+                        <td>Btn 6 + Btn 2 → Ctrl+;</td>
+                        <td>Today's date in selected cell</td>
+                    </tr>
+                    <tr>
+                        <td>Copy data</td>
+                        <td>Btn 6 + Btn 2 → Ctrl+C</td>
+                        <td>Copy without keyboard</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Discord Communication</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Button Combo</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quick switch channels</td>
+                        <td>Button 5 → Alt+Up/Down</td>
+                        <td>Cycle unread channels</td>
+                    </tr>
+                    <tr>
+                        <td>Jump to channel</td>
+                        <td>Btn 6 + Btn 3 → Ctrl+K</td>
+                        <td>Quick switcher menu</td>
+                    </tr>
+                    <tr>
+                        <td>Dictate message</td>
+                        <td>Button 4 → Win+H</td>
+                        <td>Voice-to-text in chat</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Lovable/Development</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Button Combo</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Refresh preview</td>
+                        <td>Button 3 → Ctrl+R</td>
+                        <td>Hard reload</td>
+                    </tr>
+                    <tr>
+                        <td>Switch tabs</td>
+                        <td>Button 5 → Ctrl+Tab</td>
+                        <td>Flick between code & preview</td>
+                    </tr>
+                    <tr>
+                        <td>Undo changes</td>
+                        <td>Btn 6 + Btn 4 → Ctrl+Z</td>
+                        <td>Instant rollback</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🔧 TROUBLESHOOTING</h2>
+            
+            <div class="alert-box">
+                <h3>Issue: Buttons "Forget" Their Functions After Windows Update</h3>
+                <p><strong>Solution:</strong></p>
+                <ol>
+                    <li>Uninstall Evoluent Mouse Manager</li>
+                    <li>Restart computer</li>
+                    <li>Open <code>regedit</code> (exercise caution!)</li>
+                    <li>Navigate to: <code>Computer\HKEY_CURRENT_USER\Software\Evoluent</code></li>
+                    <li>Right-click Evoluent folder → Delete</li>
+                    <li>Close regedit</li>
+                    <li>Reinstall Mouse Manager or switch to X-Mouse permanently</li>
+                </ol>
+            </div>
+
+            <div class="info-box">
+                <h3>Issue: AutoHotkey Script Doesn't Start</h3>
+                <p><strong>Solution:</strong></p>
+                <ul>
+                    <li>Verify you installed AutoHotkey <strong>v2.0</strong> (not v1.1)</li>
+                    <li>Right-click the .ahk file → Properties → Unblock (if present)</li>
+                    <li>Run as Administrator if needed</li>
+                    <li>Check for syntax errors in script (missing brackets, quotes)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>Issue: Webhook Not Triggering Airtable</h3>
+                <p><strong>Solution:</strong></p>
+                <ul>
+                    <li>Verify webhook URL is correct (copy directly from Airtable Automation)</li>
+                    <li>Test webhook manually using Postman or browser</li>
+                    <li>Check that automation is turned ON in Airtable</li>
+                    <li>Verify firewall isn't blocking outbound connections</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h3>📥 REQUIRED DOWNLOADS</h3>
+            <ul style="list-style: none; text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>✅ <strong>X-Mouse Button Control:</strong> https://www.highrez.co.uk/downloads/xmousebuttoncontrol.htm</li>
+                <li>✅ <strong>AutoHotkey v2.0:</strong> https://www.autohotkey.com/</li>
+                <li>✅ <strong>Evoluent Mouse Manager:</strong> https://evoluent.com/support/ (optional backup)</li>
+                <li>✅ <strong>Sound Files:</strong> Download Star Trek alert sounds from YouTube or soundboard sites</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🚀 NEXT-LEVEL CUSTOMIZATION</h2>
+            
+            <h3>Global Progress Bar (The "Guild Level Up" Visual)</h3>
+            <div class="info-box">
+                <p><strong>Airtable Setup:</strong></p>
+                <ol>
+                    <li>Create Formula field in Tasks table: <code>IF(Status="Complete", 10, 0)</code></li>
+                    <li>Create Summary table with Rollup of all XP</li>
+                    <li>In Airtable Interface, add Progress Bar element</li>
+                    <li>Link to Rollup field, set max value (e.g., 10,000 XP/week)</li>
+                    <li>As minions complete tasks via mouse clicks, bar fills in real-time</li>
+                </ol>
+            </div>
+
+            <h3>Discord Webhook Integration</h3>
+            <div class="script-box">
+                <pre>; Send alert notifications to Discord channel
+^!b::  ; Black Alert
+{
+    SoundPlay "C:\LairSounds\black_alert.wav"
+    
+    ; Discord webhook payload
+    Http := ComObject("WinHttp.WinHttpRequest.5.1")
+    Http.Open("POST", "YOUR_DISCORD_WEBHOOK_URL", false)
+    Http.SetRequestHeader("Content-Type", "application/json")
+    
+    jsonData := '{"content": "🚨 **BLACK ALERT ACTIVATED** 🚨\nOperator has initiated Discovery Mode. All minions to battle stations."}'
+    Http.Send(jsonData)
+}</pre>
+            </div>
+
+            <h3>TextExpander Snippets for SOPs</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Snippet</th>
+                        <th>Expands To</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>;sop1</code></td>
+                        <td>Full algorithm deployment SOP</td>
+                        <td>Quickly document processes</td>
+                    </tr>
+                    <tr>
+                        <td><code>;email</code></td>
+                        <td>Professional email template</td>
+                        <td>Client communication</td>
+                    </tr>
+                    <tr>
+                        <td><code>;alert</code></td>
+                        <td>Alert status explanation</td>
+                        <td>Training new minions</td>
+                    </tr>
+                    <tr>
+                        <td><code>;carpe</code></td>
+                        <td>Carpe Futurum - Seize The Future</td>
+                        <td>Sign-off signature</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>📊 PERFORMANCE METRICS</h2>
+            <p>Track your transformation to S-Class automation:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Before</th>
+                        <th>After S-Class</th>
+                        <th>Goal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Keyboard touches per hour</td>
+                        <td>2,000+</td>
+                        <td>200</td>
+                        <td>&lt;100</td>
+                    </tr>
+                    <tr>
+                        <td>Task completion time</td>
+                        <td>Baseline</td>
+                        <td>-40%</td>
+                        <td>-60%</td>
+                    </tr>
+                    <tr>
+                        <td>SOP documentation speed</td>
+                        <td>30 min/doc</td>
+                        <td>5 min/doc</td>
+                        <td>3 min/doc</td>
+                    </tr>
+                    <tr>
+                        <td>App switching time</td>
+                        <td>5-10 seconds</td>
+                        <td>1 second</td>
+                        <td>0.5 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Employee onboarding time</td>
+                        <td>2 days</td>
+                        <td>2 hours</td>
+                        <td>30 minutes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🎖️ THE OPERATOR'S PHILOSOPHY</h2>
+            
+            <div class="success-box">
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    In Evil Genius 2, you don't do the grunt work. You sit in the command chair, 
+                    click buttons, and the minions execute the plan. Your business should operate 
+                    the same way.
+                </p>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Your Evoluent mouse is your DualSense controller. Your employees are your guild members. 
+                    Your Airtable SSOT is your radar screen. Your alert system is your ship's computer.
+                </p>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong>The goal isn't just efficiency—it's to make running your digital empire 
+                    feel like playing a game you're winning.</strong>
+                </p>
+            </div>
+
+            <div class="alert-box">
+                <h3>CARPE FUTURUM - SEIZE THE FUTURE</h3>
+                <p>You're not just building a business. You're architecting a systematic approach to 
+                world domination where the "Stop" button is literally under your thumb and every employee 
+                has the exact same S-Class controls you do.</p>
+                <p><strong>Now get back to the Lair, Operator. Those algorithms won't sell themselves.</strong></p>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; padding: 40px;">
+            <h2>⚔️ KINGS KEY LLC ⚔️</h2>
+            <p style="font-size: 1.2em; color: #00ff88;">Digital Factory Operating System</p>
+            <p style="color: #53a8ff; margin-top: 20px;">Version 1.0 | February 2026</p>
+            <p style="color: #ffd700; margin-top: 20px; font-weight: bold;">OPERATOR CLEARANCE: S-CLASS</p>
+        </div>
+    </div>
+</body>
+</html>
